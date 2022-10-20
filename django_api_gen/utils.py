@@ -3,4 +3,5 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from .utils import *
+def generate_api():
+    pass

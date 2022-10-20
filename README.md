@@ -20,7 +20,18 @@ $ pip install git+https://github.com/app-generator/django-api-generator.git
 
 <br />
 
-> **Step #2** -  `Register the model` in `core/settings.py` (API_GENERATOR section)
+> **Step #2** **Update Configuration**: Include the new APP
+
+```python
+INSTALLED_APPS = [
+    ...                  
+    'django_api_gen',              # Django Tasks Manager   # <-- NEW
+]
+```
+
+<br />
+
+> **Step #3** -  `Register the model` in `core/settings.py` (API_GENERATOR section)
 
 ```python
 API_GENERATOR = {
@@ -30,7 +41,7 @@ API_GENERATOR = {
 
 <br />
 
-> **Step #3** - `Migrate Database`
+> **Step #4** - `Migrate Database`
 
 ```bash
 $ python manage.py makemigrations
@@ -39,7 +50,7 @@ $ python manage.py migrate
 
 <br />
 
-> **Step #4** - `Generate API` 
+> **Step #5** - `Generate API` 
 
 ```bash
 $ python manage.py generate-api
@@ -49,7 +60,7 @@ The code is generated under the `api` folder in the root of the project.
 
 <br />
 
-> **Step #5** - `Use API` 
+> **Step #6** - `Use API` 
 
 If the managed model is Books, the API interface is `/api/books/` and all CRUD methods are available. 
 
