@@ -1,0 +1,4 @@
+include LICENSE.md
+include README.md
+recursive-include django_api_gen *
+recursive-include docs *
