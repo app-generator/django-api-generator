@@ -10,7 +10,7 @@ The tool is able to `generate APIs` using **Django & DRF** stack with a minimum 
 
 <br />
 
-> **Step #1** -  Install the package via `PIP` 
+> **Step #1** - Install the package via `PIP` 
 
 ```bash
 $ pip install django-api-manager
@@ -20,7 +20,7 @@ $ pip install git+https://github.com/app-generator/django-api-generator.git
 
 <br />
 
-> **Step #2** **Update Configuration**: Include the new APP
+> **Step #2** Update Configuration, include the new APP
 
 ```python
 INSTALLED_APPS = [
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
 <br />
 
-> **Step #3** -  `Register the model` in `core/settings.py` (API_GENERATOR section)
+> **Step #3** - `Register the model` in `core/settings.py` (API_GENERATOR section)
 
 ```python
 API_GENERATOR = {
