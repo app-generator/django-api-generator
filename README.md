@@ -86,7 +86,7 @@ The code is generated under the `api` folder in the ROOT of the project. At each
 
 <br />
 
-> **Step #6** - Update routing, include APIs 
+> **Step #6** - `Update routing`, include APIs 
 
 ```python
 from django.contrib import admin
@@ -100,7 +100,7 @@ urlpatterns = [
 
 <br />
 
-> **Step #7** - Update routing, include `DRF` JWT authentication  
+> **Step #7** - `Update routing`, include `DRF` JWT authentication  
 
 ```python
 from django.contrib import admin
