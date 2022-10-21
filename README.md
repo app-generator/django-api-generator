@@ -24,7 +24,7 @@ Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort -
 
 <br />
 
-> **Step #1** - Install the package via `PIP` 
+> **Step #1** - `Install the package` 
 
 ```bash
 $ pip install django-api-generator
