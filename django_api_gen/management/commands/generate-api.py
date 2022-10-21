@@ -12,7 +12,7 @@ from django.conf import settings
 from django_api_gen import generate_api
 from django_api_gen import api
 
-# For cross platform imports 
+# Cross platform imports 
 # https://stackoverflow.com/questions/6028000/how-to-read-a-static-file-from-inside-a-python-package
 
 try:
@@ -24,22 +24,50 @@ except ImportError:
 class Command(BaseCommand):
     help = 'API Code generator'
 
-    def add_arguments(self, parser):
-        pass
-        parser.add_argument(
-            '-f',
-            action='store_true',
-            help='Generate API for all models without checking migrated in database or not.',
-        )
-
     def handle(self, *args, **options):
-        
-        # @Todo - Validate settings
-        
-        # @Todo - Check models exists 
 
-        # Check API folder
-        # Note: Needs a reset at each generation
+        #################################################    
+        # Validate settings
+
+        # BASE_DIR -> ROOT or the project
+        if not hasattr(settings, 'BASE_DIR'):
+            self.stdout.write(f" > Err: 'BASE_DIR' not found in settings")
+            self.stdout.write(f'   Hint: this variable point to the ROOT of the project]')
+            return 
+
+        # BASE_DIR -> ROOT or the project
+        if not hasattr(settings, 'API_GENERATOR'):
+            self.stdout.write(f" > Err: 'API_GENERATOR' not found in settings")
+            return 
+
+        #################################################    
+
+        API_GENERATOR = getattr(settings, 'API_GENERATOR')
+
+        for val in API_GENERATOR.values():
+
+            app_name      = val.split('.')[0]
+            model_name    = val.split('.')[-1]
+            model_import  = val.replace('.'+model_name, '')             
+
+            models = importlib.import_module( model_import )
+
+            try:
+                model = getattr(models, model_name)
+            except:
+                self.stdout.write(f' > Err: [' + model_name + '] model NOT_FOUND for [' + app_name + '] APP' )
+                self.stdout.write(f'   Hint: Add [' + model_name + '] model definition in [' + app_name + ']')
+                return 
+
+            try:
+                model.objects.last()
+            except OperationalError:
+                self.stdout.write(f' > Err: [' + model_name + '] model not migrated in DB.' )
+                self.stdout.write(f'   Hint: run makemigrations, migrate commands')
+                return 
+
+        #################################################    
+        # API folder - deleted at each cycle
         
         API_DIR        = os.path.join( settings.BASE_DIR, 'api' )
         API_FILE_INIT  = os.path.join( API_DIR, '__init__.py' )
@@ -72,6 +100,7 @@ class Command(BaseCommand):
         with open( API_FILE_SERIZ, 'w') as API_FILE_SERIZ_py:
             API_FILE_SERIZ_py.write( API_FILE_SERIZ_content )    
 
+        # All good, generated the CODE    
         generate_api()
 
         self.stdout.write(f"API successfully generated")
