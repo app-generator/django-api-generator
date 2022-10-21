@@ -1,7 +1,12 @@
 # Change Log
 
+## [0.0.3] 2022-10-21
+### Improvements
+
+- Codebase refactoring
+
 ## [0.0.2] 2022-10-21
-### improvements
+### Improvements
 
 - Codebase improvements
 
