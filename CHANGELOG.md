@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.1] 2022-10-21
+### Improvements
+
+- DOCS Update
+
 ## [1.0.0] 2022-10-21
 ### STABLE_RELEASE
 
