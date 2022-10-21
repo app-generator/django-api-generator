@@ -5,18 +5,48 @@ Copyright (c) 2019 - present AppSeed.us
 
 from core.settings import API_GENERATOR
 
+# For cross platform imports 
+# https://stackoverflow.com/questions/6028000/how-to-read-a-static-file-from-inside-a-python-package
+
+try:
+    import importlib.resources as pkg_resources
+except ImportError:
+    # Try backported to PY<37 `importlib_resources`.
+    import importlib_resources as pkg_resources
+
+from . import serializers
+from . import views
+from . import urls
+
 def generate_serializer_file():
+
+    serializers_structure = pkg_resources.read_text(serializers, 'serializers_structure')
+
+    '''
     with open('django_api_gen/serializers/serializers_structure', 'r') as serializers_structure_file:
         serializers_structure = serializers_structure_file.read()
+    '''
 
+    library_imports = pkg_resources.read_text(serializers, 'library_imports')
+
+    '''
     with open('django_api_gen/serializers/library_imports', 'r') as library_imports_file:
         library_imports = library_imports_file.read()
+    '''
 
+    base_imports = pkg_resources.read_text(serializers, 'base_imports')
+
+    '''
     with open('django_api_gen/serializers/base_imports', 'r') as base_imports_file:
         base_imports = base_imports_file.read()
+    '''
 
+    base_serializer = pkg_resources.read_text(serializers, 'base_serializer')
+
+    '''
     with open('django_api_gen/serializers/base_serializer', 'r') as base_serializer_file:
         base_serializer = base_serializer_file.read()
+    '''
 
     # This produces: from apps.models import app1.models.Book, app2.models.City
     # project_imports = base_imports.format(models_name=", ".join(API_GENERATOR.values()))
@@ -53,17 +83,35 @@ def generate_serializer_file():
 
 
 def generate_views_file():
+
+    views_structure = pkg_resources.read_text(views, 'views_structure')
+
+    '''
     with open('django_api_gen/views/views_structure', 'r') as views_structure_file:
         views_structure = views_structure_file.read()
+    '''    
 
+    library_imports = pkg_resources.read_text(views, 'library_imports')
+
+    '''    
     with open('django_api_gen/views/library_imports', 'r') as library_imports_file:
         library_imports = library_imports_file.read()
+    '''
 
+    base_imports = pkg_resources.read_text(views, 'base_imports')
+
+    '''
     with open('django_api_gen/views/base_imports', 'r') as base_imports_file:
         base_imports = base_imports_file.read()
+    '''
 
+    base_views = pkg_resources.read_text(views, 'base_views')
+
+    '''
     with open('django_api_gen/views/base_view', 'r') as base_views_file:
         base_views = base_views_file.read()
+    '''
+
 
     '''
     project_imports = base_imports.format(
@@ -107,15 +155,29 @@ def generate_views_file():
 
 
 def generate_urls_file():
+
     urls_file_structure = """{library_imports}\n{project_imports}\nurlpatterns = [\n{paths}\n\n]"""
+
+    library_imports = pkg_resources.read_text(urls, 'library_imports')
+
+    '''
     with open('django_api_gen/urls/library_imports', 'r') as library_imports_file:
         library_imports = library_imports_file.read()
+    '''
 
+    base_imports = pkg_resources.read_text(urls, 'base_imports')
+
+    '''
     with open('django_api_gen/urls/base_imports', 'r') as base_imports_file:
         base_imports = base_imports_file.read()
+    '''
 
+    base_urls_path = pkg_resources.read_text(urls, 'base_urls_path')
+
+    '''
     with open('django_api_gen/urls/base_url_path', 'r') as base_urls_file:
         base_urls_path = base_urls_file.read()
+    '''
 
     models = []
     project_imports = ''
