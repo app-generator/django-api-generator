@@ -6,6 +6,10 @@ The tool is able to `generate APIs` using **Django & DRF** stack with a minimum 
 
 <br />
 
+![Django API Generator - DRF Interface (open-source tool).](https://user-images.githubusercontent.com/51070104/197181145-f7458df7-23c3-4c14-bcb1-8e168882a104.jpg)
+
+<br />
+
 ## How to use it
 
 <br />
@@ -101,7 +105,11 @@ urlpatterns = [
 
 > **Step #8** - `Use API` 
 
-If the managed model is Books, the API interface is `/api/books/` and all CRUD methods are available. 
+If the managed model is `Books`, the API interface is `/api/books/` and all CRUD methods are available. 
+
+<br />
+
+![Django API Generator - POSTMAN Interface (open-source tool).](https://user-images.githubusercontent.com/51070104/197181265-eb648e27-e5cf-4f3c-b330-d000aba53c6a.jpg)
 
 <br />
 
