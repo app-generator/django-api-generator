@@ -1,8 +1,16 @@
 # [Django API Generator](https://github.com/app-generator/django-api-generator)
 
-The tool is able to `generate APIs` using **Django & DRF** stack with a minimum effort.
+The tool is able to `generate APIs` using **Django & DRF** stack with a minimum effort - Actively supported by [AppSeed](https://appseed.us/) via `Email` and `Discord`.
 
-> Actively supported by [AppSeed](https://appseed.us/) via `Email` and `Discord`.
+> Features: 
+
+- **Generate APIs** on top of `DRF`
+- Secured by `JWT Tokens` (mutating requests)
+- `Minimal Configuration` (single line in config for each model)
+- `Handles any model` defined across the project
+- `CRUD` access logic:
+  - `READ` is public (all items, get item)
+  - `Mutating requests` are protected by `JWT Tokens`
 
 <br />
 
@@ -38,6 +46,8 @@ INSTALLED_APPS = [
 
 > **Step #3** - `Register the model` in `core/settings.py` (API_GENERATOR section)
 
+This sample code assumes that `app1` exists and model `Book` is defined and migrated in DB.
+
 ```python
 API_GENERATOR = {
     # pattern: 
@@ -70,7 +80,7 @@ $ python manage.py migrate
 $ python manage.py generate-api
 ```
 
-The code is generated under the `api` folder in the root of the project.
+The code is generated under the `api` folder in the ROOT of the project. At each iteration the **API code is overwritten**.
 
 <br />
 
@@ -112,6 +122,14 @@ If the managed model is `Books`, the API interface is `/api/books/` and all CRUD
 <br />
 
 ![Django API Generator - POSTMAN Interface (open-source tool).](https://user-images.githubusercontent.com/51070104/197181265-eb648e27-e5cf-4f3c-b330-d000aba53c6a.jpg)
+
+<br />
+
+### Links & resources 
+
+- [DRF](https://www.django-rest-framework.org/) - HOMEpage
+- More [Developer Tools](https://appseed.us/developer-tools/) provided by `AppSeed`
+- Ask for [Support](https://appseed.us/support/) via `Email` & `Discord` 
 
 <br />
 
