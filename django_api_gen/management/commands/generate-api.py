@@ -22,5 +22,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         
+        # validate settings
+        # check models exists 
+        
         generate_api()
         self.stdout.write(f"API successfully generated.")
