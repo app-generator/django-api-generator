@@ -13,7 +13,7 @@ The tool is able to `generate APIs` using **Django & DRF** stack with a minimum 
 > **Step #1** - Install the package via `PIP` 
 
 ```bash
-$ pip install django-api-manager
+$ pip install django-api-generator
 // OR
 $ pip install git+https://github.com/app-generator/django-api-generator.git
 ```
@@ -24,8 +24,9 @@ $ pip install git+https://github.com/app-generator/django-api-generator.git
 
 ```python
 INSTALLED_APPS = [
-    ...                  
-    'django_api_gen',              # Django Tasks Manager   # <-- NEW
+    'django_api_gen',            # Django API GENERATOR  # <-- NEW
+    'rest_framework',            # Include DRF           # <-- NEW 
+    'rest_framework.authtoken',  # Include DRF Auth      # <-- NEW   
 ]
 ```
 
@@ -35,7 +36,16 @@ INSTALLED_APPS = [
 
 ```python
 API_GENERATOR = {
-    'books': "Book", # <-- Books model provided as sample
+    # pattern: 
+    # API_SLUG -> Import_PATH 
+    'books'  : "app1.models.Book",
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 ```
 
