@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.0.9] 2022-10-21
+### Improvements
+
+- Secure DRF via JWT
+- DOCS Update
+
 ## [0.0.8] 2022-10-21
 ### Improvements
 

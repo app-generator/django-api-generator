@@ -70,7 +70,7 @@ The code is generated under the `api` folder in the root of the project.
 
 <br />
 
-> **Step #6** - Update project routing 
+> **Step #6** - Update routing, include APIs 
 
 ```python
 from django.contrib import admin
@@ -84,7 +84,22 @@ urlpatterns = [
 
 <br />
 
-> **Step #7** - `Use API` 
+> **Step #7** - Update routing, include `DRF` JWT authentication  
+
+```python
+from django.contrib import admin
+from rest_framework.authtoken.views import obtain_auth_token # <-- NEW
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/"   , include("api.urls")),  
+    path('login/jwt/', view=obtain_auth_token),              # <-- NEW
+]    
+```    
+
+<br />
+
+> **Step #8** - `Use API` 
 
 If the managed model is Books, the API interface is `/api/books/` and all CRUD methods are available. 
 

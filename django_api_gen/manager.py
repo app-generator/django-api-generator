@@ -147,6 +147,7 @@ def generate_views_file():
     generation = views_structure.format(
         library_imports=library_imports,
         project_imports=project_imports,
+        base_imports=base_imports,
         views=views
     )
 
