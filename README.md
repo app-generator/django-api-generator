@@ -51,22 +51,26 @@ REST_FRAMEWORK = {
 
 <br />
 
-> **Step #4** - `Migrate Database`
-
-```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
-```
-
-<br />
-
-> **Step #5** - `Generate API` 
+> **Step #4** - `Generate API` 
 
 ```bash
 $ python manage.py generate-api
 ```
 
 The code is generated under the `api` folder in the root of the project.
+
+<br />
+
+> **Step #5** - Update project routing 
+
+```python
+from django.contrib import admin
+from django.urls import path, include       # <-- NEW: 'include` directive added
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/"   , include("api.urls")),   # <-- NEW: API routing rules
+```    
 
 <br />
 
