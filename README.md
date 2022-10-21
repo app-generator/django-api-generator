@@ -4,9 +4,9 @@ Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort -
 
 <br />
 
-> Features
+> **API Generator Features**
 
-- API engine provided by `DRF`
+- `API engine` provided by `DRF`
 - Secured by `JWT Tokens` (mutating requests)
 - `Minimal Configuration` (single line in config for each model)
 - `Handles any model` defined across the project
