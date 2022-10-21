@@ -34,7 +34,7 @@ $ pip install git+https://github.com/app-generator/django-api-generator.git
 
 <br />
 
-> **Step #2** Update Configuration, include the new APP
+> **Step #2** - `Update Configuration`, include the new APPs
 
 ```python
 INSTALLED_APPS = [
