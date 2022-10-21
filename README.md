@@ -78,11 +78,11 @@ The code is generated under the `api` folder in the root of the project.
 
 ```python
 from django.contrib import admin
-from django.urls import path, include       # <-- NEW: 'include` directive added
+from django.urls import path, include     # <-- NEW: 'include` directive added
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/"   , include("api.urls")),   # <-- NEW: API routing rules
+    path("api/",   include("api.urls")),  # <-- NEW: API routing rules
 ]    
 ```    
 
@@ -95,8 +95,8 @@ from django.contrib import admin
 from rest_framework.authtoken.views import obtain_auth_token # <-- NEW
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/"   , include("api.urls")),  
+    path("admin/", admin.site.urls),     
+    path("api/", include("api.urls")),                       # <-- Added in the previous step
     path('login/jwt/', view=obtain_auth_token),              # <-- NEW
 ]    
 ```    
@@ -106,6 +106,8 @@ urlpatterns = [
 > **Step #8** - `Use API` 
 
 If the managed model is `Books`, the API interface is `/api/books/` and all CRUD methods are available. 
+
+> Note: for mutating requests, the `JWT Token` is provided by `http://localhost:8000/login/jwt/` route (the user should exist).
 
 <br />
 
