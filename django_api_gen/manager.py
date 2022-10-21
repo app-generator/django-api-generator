@@ -14,11 +14,13 @@ except ImportError:
     # Try backported to PY<37 `importlib_resources`.
     import importlib_resources as pkg_resources
 
-from . import serializers
-from . import views
-from . import urls
+from . import serializers as serializers
+from . import views       as views
+from . import urls        as urls 
 
 def generate_serializer_file():
+
+    from . import serializers
 
     serializers_structure = pkg_resources.read_text(serializers, 'serializers_structure')
 
@@ -83,6 +85,8 @@ def generate_serializer_file():
 
 
 def generate_views_file():
+
+    from . import views
 
     views_structure = pkg_resources.read_text(views, 'views_structure')
 
@@ -156,6 +160,8 @@ def generate_views_file():
 
 def generate_urls_file():
 
+    from . import urls
+    
     urls_file_structure = """{library_imports}\n{project_imports}\nurlpatterns = [\n{paths}\n\n]"""
 
     library_imports = pkg_resources.read_text(urls, 'library_imports')
