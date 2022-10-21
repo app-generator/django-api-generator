@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 > **Step #3** - `Register the model` in `core/settings.py` (API_GENERATOR section)
 
-This sample code assumes that `app1` exists and model `Book` is defined and migrated in DB.
+This sample code assumes that `app1` exists and model `Book` is defined and migrated.
 
 ```python
 API_GENERATOR = {
