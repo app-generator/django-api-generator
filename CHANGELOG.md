@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.0.4] 2022-10-21
+### Improvements
+
 ## [0.0.3] 2022-10-21
 ### Improvements
 
