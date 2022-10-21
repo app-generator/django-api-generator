@@ -1,10 +1,12 @@
 # [Django API Generator](https://github.com/app-generator/django-api-generator)
 
-The tool is able to `generate APIs` using **Django & DRF** stack with a minimum effort - Actively supported by [AppSeed](https://appseed.us/) via `Email` and `Discord`.
+Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort - actively supported by [AppSeed](https://appseed.us/).
+
+<br />
 
 > Features: 
 
-- **Generate APIs** on top of `DRF`
+- API engine provided by `DRF`
 - Secured by `JWT Tokens` (mutating requests)
 - `Minimal Configuration` (single line in config for each model)
 - `Handles any model` defined across the project
