@@ -67,6 +67,18 @@ class Command(BaseCommand):
                 return 
 
         #################################################    
+        # User Confirmation
+
+        self.stdout.write(f" > Configuration looks good.")
+        self.stdout.write(f"   !!! The API folder will be overwritten !!! ")
+
+        answer = input("Continue? [Y/n]")
+
+        if answer.upper() not in ["Y", "YES"]:
+            self.stdout.write(f"API generation cancelled.")
+            return 
+
+        #################################################    
         # API folder - deleted at each cycle
         
         API_DIR        = os.path.join( settings.BASE_DIR, 'api' )
@@ -100,7 +112,9 @@ class Command(BaseCommand):
         with open( API_FILE_SERIZ, 'w') as API_FILE_SERIZ_py:
             API_FILE_SERIZ_py.write( API_FILE_SERIZ_content )    
 
-        # All good, generated the CODE    
+        # Proceed with the SQL part
         generate_api()
-
         self.stdout.write(f"API successfully generated")
+
+        # exit
+        return 

@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.6] 2022-10-22
+### Improvements
+
+- Code CleanUP
+- Ask for user confirmation
+
 ## [1.0.5] 2022-10-21
 ### Improvements
 
@@ -26,7 +32,6 @@
   - check the presence of `APP_GENERATOR` section
   - check `BASE_DIR` is defined 
   - check Models exists and migrated on DB
-- Ask for user permission to generate the API
 
 ## [1.0.1] 2022-10-21
 ### Improvements
