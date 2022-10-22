@@ -4,7 +4,7 @@ Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort -
 
 <br />
 
-> **API Generator Features**
+> `API Generator Features` - see `[video presentation](https://www.youtube.com/watch?v=fkjvhFejEv8)` 
 
 - `API engine` provided by `DRF`
 - Secured by `JWT Tokens` (mutating requests)
