@@ -1,4 +1,4 @@
-# [Django API Generator](https://github.com/app-generator/django-api-generator)
+# [Django API Generator](https://appseed.us/developer-tools/django-api-generator/)
 
 Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort - actively supported by [AppSeed](https://appseed.us/).
 
@@ -123,4 +123,4 @@ If the managed model is `Books`, the API interface is `/api/books/` and all CRUD
 <br />
 
 ---
-[Django API Generator](https://github.com/app-generator/django-api-generator) - Open-source library provided by **[AppSeed](https://appseed.us/)**
+[Django API Generator](https://appseed.us/developer-tools/django-api-generator/) - Open-source library provided by **[AppSeed](https://appseed.us/)**
