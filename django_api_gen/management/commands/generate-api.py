@@ -24,6 +24,13 @@ except ImportError:
 class Command(BaseCommand):
     help = 'API Code generator'
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '-f',
+            action='store_true',
+            help='Forcing Generate API for all models (no checks).',
+        )
+
     def handle(self, *args, **options):
 
         #################################################    
@@ -72,11 +79,16 @@ class Command(BaseCommand):
         self.stdout.write(f" > Configuration looks good.")
         self.stdout.write(f"   !!! The API folder will be overwritten !!! ")
 
-        answer = input("Continue? [Y/n]")
+        if options['f']:
 
-        if answer.upper() not in ["Y", "YES"]:
-            self.stdout.write(f"API generation cancelled.")
-            return 
+            self.stdout.write(f" > Generate API (forcing mode).")
+
+        else:
+            answer = input("Continue? [Y/n]")
+
+            if answer.upper() not in ["Y", "YES"]:
+                self.stdout.write(f"API generation cancelled.")
+                return 
 
         #################################################    
         # API folder - deleted at each cycle

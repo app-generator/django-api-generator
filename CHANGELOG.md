@@ -1,12 +1,18 @@
 # Change Log
 
+## [1.0.9] 2023-02-14
+### Changes
+
+- Added `-f` argument to the generator
+  - no input expected
+
 ## [1.0.8] 2022-11-01
-### Improvements
+### Changes
 
 - DOCS Update
 
 ## [1.0.7] 2022-10-30
-### Improvements
+### Changes
 
 - DOCS Update
 

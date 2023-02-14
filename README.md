@@ -80,6 +80,8 @@ $ python manage.py migrate
 
 ```bash
 $ python manage.py generate-api
+// OR 
+$ python manage.py generate-api -f # supress confirmation (forcing mode)
 ```
 
 The code is generated under the `api` folder in the ROOT of the project. At each iteration the **API code is overwritten**.
