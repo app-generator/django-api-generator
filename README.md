@@ -2,6 +2,9 @@
 
 Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort - actively supported by [AppSeed](https://appseed.us/).
 
+- [Django Dynamic Services](https://github.com/app-generator/django-dynamic-services) - `sample project that uses the library`
+- Free [support](https://appseed.us/support/) via Email and Discord
+
 <br />
 
 > `API Generator Features` - see **[video](https://www.youtube.com/watch?v=fkjvhFejEv8)** presentation
