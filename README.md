@@ -14,7 +14,7 @@ Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort -
 - `Minimal Configuration` (single line in config for each model)
 - `Handles any model` defined across the project
 - `CRUD` access logic:
-  - `READ` is public (all items, get item)
+  - `READ` is public (all items, get item by ID)
   - `Mutating requests` are protected by `JWT Tokens`
 
 <br />
