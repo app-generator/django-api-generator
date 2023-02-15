@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.13] 2023-02-14
+### Changes
+
+- DOCS Update (minor)
+
 ## [1.0.12] 2023-02-14
 ### Changes
 
