@@ -76,7 +76,7 @@ class Command(BaseCommand):
 
         if 0 == valid_models:
             print(f" > Error: All Models defined in CFG are INVALID")
-            print(f"      |-- (nothing is generated)
+            print(f"      |-- (nothing is generated)")
             return             
 
         #################################################    
