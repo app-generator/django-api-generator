@@ -1,5 +1,9 @@
 {library_imports}
 
+try:
+
 {project_imports}
+except:
+    pass 
 
 {serializers}

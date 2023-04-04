@@ -26,9 +26,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            '-f',
-            action='store_true',
-            help='Forcing Generate API for all models (no checks).',
+            '-f', action='store_true', help='Forcing Generate API for all models (no checks).',
         )
 
     def handle(self, *args, **options):
@@ -38,13 +36,13 @@ class Command(BaseCommand):
 
         # BASE_DIR -> ROOT or the project
         if not hasattr(settings, 'BASE_DIR'):
-            self.stdout.write(f" > Err: 'BASE_DIR' not found in settings")
-            self.stdout.write(f'   Hint: this variable point to the ROOT of the project]')
+            print(f" > Err: 'BASE_DIR' not found in settings")
+            print(f'   Hint: this variable point to the ROOT of the project]')
             return 
 
         # BASE_DIR -> ROOT or the project
         if not hasattr(settings, 'API_GENERATOR'):
-            self.stdout.write(f" > Err: 'API_GENERATOR' not found in settings")
+            print(f" > Err: 'API_GENERATOR' not found in settings")
             return 
 
         #################################################    
@@ -62,32 +60,32 @@ class Command(BaseCommand):
             try:
                 model = getattr(models, model_name)
             except:
-                self.stdout.write(f' > Err: [' + model_name + '] model NOT_FOUND for [' + app_name + '] APP' )
-                self.stdout.write(f'   Hint: Add [' + model_name + '] model definition in [' + app_name + ']')
+                print(f' > Err: [' + model_name + '] model NOT_FOUND for [' + app_name + '] APP' )
+                print(f'   Hint: Add [' + model_name + '] model definition in [' + app_name + ']')
                 return 
 
             try:
                 model.objects.last()
             except OperationalError:
-                self.stdout.write(f' > Err: [' + model_name + '] model not migrated in DB.' )
-                self.stdout.write(f'   Hint: run makemigrations, migrate commands')
+                print(f' > Err: [' + model_name + '] model not migrated in DB.' )
+                print(f'   Hint: run makemigrations, migrate commands')
                 return 
 
         #################################################    
         # User Confirmation
 
-        self.stdout.write(f" > Configuration looks good.")
-        self.stdout.write(f"   !!! The API folder will be overwritten !!! ")
+        print(f" > Configuration looks good.")
+        print(f"   !!! The API folder will be overwritten !!! ")
 
         if options['f']:
 
-            self.stdout.write(f" > Generate API (forcing mode).")
+            print(f" > Generate API (forcing mode).")
 
         else:
             answer = input("Continue? [Y/n]")
 
             if answer.upper() not in ["Y", "YES"]:
-                self.stdout.write(f"API generation cancelled.")
+                print(f"API generation cancelled.")
                 return 
 
         #################################################    
@@ -126,7 +124,7 @@ class Command(BaseCommand):
 
         # Proceed with the SQL part
         generate_api()
-        self.stdout.write(f"API successfully generated")
+        print(f"API successfully generated")
 
         # exit
         return 

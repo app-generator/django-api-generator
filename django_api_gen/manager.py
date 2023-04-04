@@ -42,9 +42,9 @@ def generate_serializer_file():
         models.append( model_name )
 
         # Build Imports
-        project_imports += 'from ' + model_import + ' import ' + model_name + '\n\n' 
+        project_imports += '    from ' + model_import + ' import ' + model_name + '\n' 
         
-    serializers = '\n\n'.join(base_serializer.format(model_name=model_name) for model_name in models )
+    serializers = '\n'.join(base_serializer.format(model_name=model_name) for model_name in models )
     
     generation = serializers_structure.format(
         library_imports=library_imports,
@@ -78,9 +78,9 @@ def generate_views_file():
         models.append( model_name )
 
         # Build Imports
-        project_imports += 'from ' + model_import + ' import ' + model_name + '\n\n'     
+        project_imports += '    from ' + model_import + ' import ' + model_name + '\n'     
 
-    views = '\n\n'.join(base_views.format(
+    views = '\n'.join(base_views.format(
         serializer_name=f'{model_name}Serializer',
         model_name=model_name
     ) for model_name in models)
