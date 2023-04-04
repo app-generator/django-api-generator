@@ -4,6 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from django.conf import settings
+from .util import *
 
 API_GENERATOR = {}
 
@@ -34,7 +35,8 @@ def generate_serializer_file():
     models = []
     project_imports = ''
 
-    for val in API_GENERATOR.values():
+    #for val in API_GENERATOR.values():
+    for val in valid_models():
         
         # extract model from import path
         model_name    = val.split('.')[-1]
@@ -70,7 +72,8 @@ def generate_views_file():
     models = []
     project_imports = ''
 
-    for val in API_GENERATOR.values():
+    #for val in API_GENERATOR.values():
+    for val in valid_models():
         
         # extract model from import path
         model_name    = val.split('.')[-1]
@@ -111,7 +114,8 @@ def generate_urls_file():
     models = []
     project_imports = ''
 
-    for val in API_GENERATOR.values():
+    #for val in API_GENERATOR.values():
+    for val in valid_models():
         
         # extract model from import path
         model_name    = val.split('.')[-1]
@@ -122,12 +126,14 @@ def generate_urls_file():
     paths = ''
 
     for endpoint, model_path in API_GENERATOR.items():
+        
+        if model_path in valid_models():
 
-        model_name    = model_path.split('.')[-1]
-        model_import  = model_path.replace('.'+model_name, '') 
+            model_name    = model_path.split('.')[-1]
+            model_import  = model_path.replace('.'+model_name, '') 
 
-        view_name = f'{model_name}View'
-        paths = f'{paths}\n\t{base_urls_path.format(endpoint=endpoint, view_name=view_name)}'
+            view_name = f'{model_name}View'
+            paths = f'{paths}\n\t{base_urls_path.format(endpoint=endpoint, view_name=view_name)}'
 
     generation = urls_file_structure.format(
         library_imports=library_imports,

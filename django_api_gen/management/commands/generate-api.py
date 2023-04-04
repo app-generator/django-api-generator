@@ -49,27 +49,35 @@ class Command(BaseCommand):
 
         API_GENERATOR = getattr(settings, 'API_GENERATOR')
 
+        valid_models = 0
         for val in API_GENERATOR.values():
 
             app_name      = val.split('.')[0]
             model_name    = val.split('.')[-1]
             model_import  = val.replace('.'+model_name, '')             
 
-            models = importlib.import_module( model_import )
+            models       = importlib.import_module( model_import )
+            model        = None 
 
             try:
                 model = getattr(models, model_name)
+                model_exists = True
             except:
-                print(f' > Err: [' + model_name + '] model NOT_FOUND for [' + app_name + '] APP' )
-                print(f'   Hint: Add [' + model_name + '] model definition in [' + app_name + ']')
-                return 
+                print(f' > Warn: Model [' + model_name + '] not defined in [' + val.replace(('.' + model_name),'') + ']' )
+                continue
 
             try:
                 model.objects.last()
-            except OperationalError:
-                print(f' > Err: [' + model_name + '] model not migrated in DB.' )
-                print(f'   Hint: run makemigrations, migrate commands')
-                return 
+            except:
+                print(f' > Warn: [' + val + '] model not migrated in DB.' )
+                continue
+    
+            valid_models += 1
+
+        if 0 == valid_models:
+            print(f" > Error: All Models defined in CFG are INVALID")
+            print(f"      |-- (nothing is generated)
+            return             
 
         #################################################    
         # User Confirmation

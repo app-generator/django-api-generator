@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.15] 2023-04-04
+### Changes
+
+- Stability Fixes
+
 ## [1.0.14] 2023-04-04
 ### Changes
 
