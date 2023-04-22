@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.17] 2023-04-22
+### Changes
+
+- PUT, POST: Change how the inptu is parsed
+  - In this version: JSON type expected
+  - Before: FORM-encoded 
+
 ## [1.0.16] 2023-04-04
 ### Changes
 

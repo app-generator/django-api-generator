@@ -3,7 +3,7 @@ class {model_name}View(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def post(self, request):
-        serializer = {serializer_name}(data=request.POST)
+        serializer = {serializer_name}(data=request.data)
         if not serializer.is_valid():
             return Response(data={{
                 **serializer.errors,
@@ -41,7 +41,7 @@ class {model_name}View(APIView):
                 'message': 'object with given id not found.',
                 'success': False
             }}, status=HTTPStatus.NOT_FOUND)
-        serializer = {serializer_name}(instance=obj, data=request.POST, partial=True)
+        serializer = {serializer_name}(instance=obj, data=request.data, partial=True)
         if not serializer.is_valid():
             return Response(data={{
                 **serializer.errors,
