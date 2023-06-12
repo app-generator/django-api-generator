@@ -3,9 +3,9 @@
 ## [1.0.17] 2023-04-22
 ### Changes
 
-- PUT, POST: Change how the inptu is parsed
+- PUT, POST: Change how the input is parsed
   - In this version: JSON type expected
-  - Before: FORM-encoded 
+  - Previously was FORM-encoded
 
 ## [1.0.16] 2023-04-04
 ### Changes
