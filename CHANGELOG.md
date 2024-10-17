@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.18] 2024-10-17
+### Changes
+
+- Update RM
+  - [Django API Generator](https://app-generator.dev/docs/developer-tools/api-generator.html)
+  - Mention [Dynamic Django](https://app-generator.dev/docs/developer-tools/dynamic-django/index.html) Starter (commercial)
+
 ## [1.0.17] 2023-04-22
 ### Changes
 

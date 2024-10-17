@@ -1,9 +1,20 @@
-# [Django API Generator](https://appseed.us/developer-tools/django-api-generator/)
+# [Django API Generator](https://app-generator.dev/docs/developer-tools/api-generator.html)
 
-Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort - actively supported by [AppSeed](https://appseed.us/).
+Simple tool that **Generates Secure APIs** on top of `DRF` with minimum effort - actively supported by **[App-Generator](https://app-generator.dev/)**.
 
-- [Django Dynamic Services](https://github.com/app-generator/django-dynamic-services) - `sample project that uses the library`
-- [Django - Build Services without Coding](https://www.youtube.com/watch?v=EtMCK5AmdQI) - `video presentation`
+- [Django - Build Services without Coding](https://www.youtube.com/watch?v=EtMCK5AmdQI) - video presentation
+
+<br />
+
+---
+
+> For a **complete set of features** and long-term support, check out **[Dynamic Django](https://app-generator.dev/docs/developer-tools/dynamic-django/index.html)**, a powerful starter that incorporates:
+
+- [Dynamic DataTables](https://app-generator.dev/docs/developer-tools/dynamic-django/datatables.html): using a single line of configuration, the data saved in any table is automatically managed
+- [Dynamic API](https://app-generator.dev/docs/developer-tools/dynamic-django/api.html): any model can become a secure API Endpoint using DRF
+- [Dynamic Charts](https://app-generator.dev/docs/developer-tools/dynamic-django/charts.html): extract relevant charts without coding all major types are supported
+- [CSV Loader](https://app-generator.dev/docs/developer-tools/dynamic-django/csv-loader.html): translate CSV files into Django Models and (optional) load the information
+- Powerful [CLI Tools](https://app-generator.dev/docs/developer-tools/dynamic-django/cli.html) for the GIT interface, configuration editing, updating the configuration and database (create models, migrate DB)
 
 <br />
 
@@ -128,4 +139,4 @@ If the managed model is `Books`, the API interface is `/api/books/` and all CRUD
 <br />
 
 ---
-[Django API Generator](https://appseed.us/developer-tools/django-api-generator/) - Open-source library provided by **[AppSeed](https://appseed.us/)**
+[Django API Generator](https://app-generator.dev/docs/developer-tools/api-generator.html) - Open-source library provided by **[App-Generator](https://app-generator.dev/)**
